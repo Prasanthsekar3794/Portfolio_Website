@@ -1,8 +1,8 @@
-/* --- 1. Global Styles and Variables --- */
+/* ---------------- 1. Global Styles ---------------- */
 :root {
-    --primary-color: #0077B6; /* Deep Blue */
-    --secondary-color: #00B4D8; /* Lighter Cyan/Blue */
-    --accent-color: #90E0EF;   /* Lightest Blue */
+    --primary-color: #0077B6;
+    --secondary-color: #00B4D8;
+    --accent-color: #90E0EF;
     --text-dark: #1A1A1A;
     --text-light: #F4F4F4;
     --bg-light: #FFFFFF;
@@ -20,16 +20,22 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--bg-light);
     scroll-behavior: smooth;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .section-padding {
@@ -37,32 +43,22 @@ body {
 }
 
 h1, h2, h3 {
-    margin-bottom: 20px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2.4em;
     text-align: center;
     color: var(--primary-color);
 }
 
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: color var(--transition-speed);
-}
-
-a:hover {
-    color: var(--secondary-color);
-}
-
-/* --- 2. Navigation & Header --- */
+/* ---------------- 2. Navigation ---------------- */
 header {
-    background-color: var(--bg-light);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
+    background: var(--bg-light);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     z-index: 1000;
 }
 
@@ -73,15 +69,13 @@ nav {
     padding: 15px 5%;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--primary-color);
+.logo img {
+    width: 20%;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    list-style: none;
 }
 
 .nav-links li {
@@ -89,71 +83,98 @@ nav {
 }
 
 .nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
     font-weight: 600;
-    padding: 5px 0;
     position: relative;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
 }
 
 .nav-links a::after {
-    content: '';
+    content: "";
     position: absolute;
-    width: 0;
+    left: 0;
+    bottom: -5px;
     height: 2px;
-    display: block;
-    margin-top: 5px;
+    width: 0;
     background: var(--secondary-color);
-    transition: width var(--transition-speed) ease-in-out;
+    transition: 0.3s;
 }
 
 .nav-links a:hover::after {
     width: 100%;
 }
 
-/* --- 3. Hero/About Section --- */
-.hero-section {
-    background-color: var(--accent-color);
-    color: var(--text-dark);
-    padding: 100px 0;
+.nav-links a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ---------------- 3. Hero Section ---------------- */
+.hero-section{
+    background: var(--accent-color);
     text-align: center;
+    padding: 110px 0;
 }
 
-.hero-section h1 {
+.hero-text h1 {
     font-size: 3em;
-    margin-bottom: 10px;
-    color: var(--text-dark);
+    color: var(--secondary-color);
 }
 
-.hero-section .subtitle {
+.subtitle {
     font-size: 1.2em;
-    font-weight: 400;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    color: aqua;
 }
 
-.hero-section .description {
+.description {
     max-width: 800px;
-    margin: 0 auto 40px;
-    font-size: 1.1em;
+    margin: auto;
+    font-size: 1.05em;
+    margin-bottom: 40px;
 }
 
-.btn {
+.btn-primary {
     display: inline-block;
-    background-color: var(--primary-color);
+    padding: 12px 32px;
+    background: var(--primary-color);
     color: var(--text-light);
-    padding: 12px 30px;
     border-radius: 50px;
     font-weight: 600;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--text-light); /* Keep text light on hover */
+.btn-primary:hover {
+    background: var(--secondary-color);
     transform: translateY(-2px);
 }
 
-/* --- 4. Skills Section --- */
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: 0.4s;
+}
+
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+/* ---------------- 4. Skills ---------------- */
 .skills-section {
-    background-color: var(--card-bg);
+    background: var(--card-bg);
 }
 
 .skills-grid {
@@ -165,154 +186,287 @@ nav {
 }
 
 .skill-card {
-    background-color: var(--bg-light);
-    border: 1px solid var(--accent-color);
-    padding: 15px 25px;
+    background: var(--bg-light);
+    padding: 14px 26px;
     border-radius: var(--border-radius);
     font-weight: 600;
+    border: 1px solid var(--accent-color);
     color: var(--primary-color);
-    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: 0.3s;
 }
 
 .skill-card:hover {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: var(--text-light);
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 119, 182, 0.3);
+    transform: translateY(-6px) scale(1.05);
 }
 
-/* --- 5. Projects Section --- */
-.projects-section {
-    background-color: var(--bg-light);
-    text-align: center;
-}
-
+/* ---------------- 5. Projects ---------------- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     gap: 30px;
     margin-top: 40px;
 }
 
 .project-card {
-    background-color: var(--card-bg);
+    background: var(--card-bg);
     padding: 30px;
     border-radius: var(--border-radius);
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    position: relative;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.3s;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,119,182,0.25);
+}
+/* --- Project Row Layout --- */
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-.project-card h3 {
-    color: var(--primary-color);
-    font-size: 1.4em;
+/* Project Image */
+.project-row img {
+    width: 45%;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
 }
 
-.project-card .tech-stack {
-    color: var(--secondary-color);
-    font-size: 0.9em;
-    margin-bottom: 15px;
-    font-style: italic;
+/* --- Project Description / Case Study --- */
+.project-description {
+    margin-top: 20px;
+    padding: 20px 25px;
+    background-color: var(--bg-light);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    animation: fadeUp 0.6s ease forwards;
 }
 
-.project-link {
-    display: inline-block;
+.project-description h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
     margin-top: 15px;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
-/* --- 6. Contact Section --- */
-.contact-section {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    text-align: center;
+.project-description h4:first-child {
+    margin-top: 0;
 }
 
-.contact-section h2 {
-    color: var(--accent-color);
+.project-description p {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.6;
 }
 
-.contact-section p {
-    font-size: 1.1em;
-    margin-bottom: 30px;
+.project-description ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
 
-.contact-info a {
-    color: var(--accent-color);
-    transition: color var(--transition-speed);
+.project-description ul li {
+    font-size: 0.95em;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 5px;
 }
 
-.contact-info a:hover {
-    color: var(--bg-light);
+/* Custom bullet */
+.project-description ul li::marker {
+    color: var(--secondary-color);
 }
 
-.contact-info p {
-    margin: 10px 0;
+/* Tools text */
+.project-description p:last-child {
+    font-weight: 600;
+    color: var(--secondary-color);
 }
 
-/* --- 7. Footer --- */
-footer {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
+/* --- Hover UX --- */
+.project-card:hover .project-description {
+    transform: translateY(-2px);
+    transition: transform var(--transition-speed);
 }
 
-/* --- 8. Responsive Design (Mobile Optimizations) --- */
-@media (max-width: 768px) {
-    
-    .section-padding {
-        padding: 50px 0;
+/* --- Subtle Reveal Animation --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
     }
-    
-    /* Navigation Adjustments */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------------- 6. Contact Section ---------------- */
+#contact {
+    background: var(--accent-color);
+    padding: 80px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    margin-bottom: 40px;
+}
+
+#contact p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+#contact i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+#contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-speed);
+}
+
+#contact a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* ---------------- 7. Footer ---------------- */
+footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+}
+
+/* ---------------- 8. Responsive ---------------- */
+@media(max-width:768px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px 5%;
     }
-
     .nav-links {
         flex-direction: column;
-        width: 100%;
         margin-top: 10px;
-        align-items: flex-start;
     }
-
     .nav-links li {
         margin: 5px 0;
     }
-
-    /* Hero Section Adjustments */
     .hero-section h1 {
         font-size: 2.2em;
     }
-
-    .hero-section .subtitle {
+    .description {
         font-size: 1em;
     }
-    
-    .hero-section .description {
-        font-size: 1em;
-    }
-
-    /* Skills Grid Adjustments */
-    .skills-grid {
-        gap: 10px;
-    }
-
-    .skill-card {
-        padding: 10px 15px;
-    }
-
-    /* Projects Grid Adjustments */
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+@media(max-width:480px) {
+    .hero-section {
+        padding: 80px 0;
+    }
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+    .btn {
+        padding: 10px 24px;
+        font-size: 0.9em;
+    }
+}
+/* ----- Hero Grid Layout ----- */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+
+/* ----- Responsive ----- */
+@media(max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+@media(max-width: 480px) {
+    .hero-image img {
+        border-radius: 12px;
+    }
+}
+
+/* Tab Menu Styles */
+#tab-container {
+    min-height: 100vh; /* Ensure full height */
+}
+
+.tab-section {
+    display: none; /* Hide all by default */
+}
+
+.tab-section.active {
+    display: block; /* Show active tab */
+}
+
+.nav-links a.active {
+    color: var(--primary-color); /* Highlight active tab */
+    font-weight: bold;
+}
+
+/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+    scrollbar-width: none;
 }
