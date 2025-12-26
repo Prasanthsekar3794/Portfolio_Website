@@ -6,95 +6,323 @@
     <title>Prasanth Sekar - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Prasanth S.</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="about" class="hero-section">
-        <div class="container">
+    
+<header>
+    <nav>
+        <div class="logo"><img src="logo.png" alt="Logo"></div>
+        <ul class="nav-links">
+            <li><a href="#about" class="tab-link active" data-tab="about">About</a></li>
+            <li><a href="#skills" class="tab-link" data-tab="skills">Skills</a></li>
+            <li><a href="#experience" class="tab-link" data-tab="experience">Experience</a></li>
+            <li><a href="#projects" class="tab-link" data-tab="projects">Projects</a></li>
+            <li><a href="#education" class="tab-link" data-tab="education">Education</a></li>
+            <li><a href="#CERTIFICATIONS" class="tab-link" data-tab="CERTIFICATIONS">Certifications</a></li>
+            <li><a href="#contact" class="tab-link" data-tab="contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="tab-container">
+    <!-- ABOUT -->
+    <section id="about" class="tab-section active">
+        <div class="container hero-grid">
+            
+            <div class="hero-text">
             <h1>Hello, I'm Prasanth Sekar</h1>
-            <p class="subtitle">Computer Science Engineer | Automation Testing & Software Development</p>
+            <p class="subtitle">UI/UX Designer | Software Developer</p>
             <p class="description">
-                Motivated CSE student proficient in **Java, Selenium, and TestNG**, with exposure to React.js and Node.js. 
-                Successfully developed innovative solutions like the "BRUNT REVERSAL JUST-IN-TIME GLITCH PROPHECY" warehouse system. 
-                Focused on creating reliable, innovative solutions.
+                    Creative and detail-oriented UI/UX Designer (Fresher) with strong experience in UI layout design, usability, and visual consistency. Skilled in Figma, wireframing, prototyping, and UI polishing with hands-on exposure to real-world projects.
+                </p>
+
+                <a href="#projects" class="btn-primary">View My Work</a>
+            </div>
+
+            <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0" alt="UI Dashboard Design">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="tab-section">
+        <div class="container">
+        <h2>🛠️ Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">UI/UX Design</div>
+            <div class="skill-card">Figma</div>
+            <div class="skill-card">Wireframing</div>
+            <div class="skill-card">Prototyping</div>
+            <div class="skill-card">HTML & CSS</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">Git</div>
+            <div class="skill-card">Usability Testing</div>
+        </div>
+    </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="tab-section">
+        <div class="container">
+        <h2>💼 Experience</h2>
+
+        <div class="project-card">
+            <h3>Senior E-Pub Developer</h3>
+            <p class="tech-stack">DiacriTech Technologies Pvt. Ltd (2017 – 2022)</p>
+            <p>
+                Created and refined high-quality digital content layouts (ePub and PDF) with strong focus on UI structure, typography, alignment, and visual consistency. Worked extensively on layout correction, usability improvements, and screen-level polishing. Collaborated with cross-functional teams to ensure content readability, user-friendly presentation, and quality standards—skills directly transferable to UI/UX design and interface optimization.
             </p>
-            <a href="#contact" class="btn">Get in Touch</a>
         </div>
+
+        <div class="project-card">
+            <h3>Mobile App Developer Intern</h3>
+            <p class="tech-stack">KBP Smarther Solutions Pvt. Ltd</p>
+            <p>
+                Developed responsive mobile application interfaces using Java in Android Studio. Designed login and sign-up screens, implemented form validation, and ensured smooth user interaction across multiple Android devices. This experience strengthened my understanding of UI usability and real-world application design.
+            </p>
+        </div>
+    </div>
     </section>
 
-    <section id="skills" class="skills-section section-padding">
+    <!-- PROJECTS -->
+    <section id="projects" class="tab-section">
         <div class="container">
-            <h2>🛠️ Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">Core Java</div>
-                <div class="skill-card">JavaScript</div>
-                <div class="skill-card">Selenium</div>
-                <div class="skill-card">TestNG</div>
-                <div class="skill-card">React.js</div>
-                <div class="skill-card">Node.js</div>
-                <div class="skill-card">Android Studio</div>
-                <div class="skill-card">Git</div>
+        <h2>🚀 Projects</h2>
+
+        <div class="project-card project-row">
+            <img src="https://img.freepik.com/premium-vector/smart-ui-dashboard-template-elements_914731-370.jpg" alt="Dashboard UI">
+            <div class="project-description">
+                <h3>Smart Dashboard UI</h3>
+
+                <h4>Project Overview</h4>
+                <p>
+                    Smart Dashboard UI is a responsive web interface designed to provide users with
+                    clear insights through structured layouts, data cards, and smooth navigation.
+                    The goal of this project was to simplify complex information and enhance usability
+                    through intuitive design and micro-interactions.
+                </p>
+
+                <h4>Problem Statement</h4>
+                <p>
+                    Users often struggle with cluttered dashboards that make data interpretation
+                    difficult. This project addresses that issue by creating a clean visual hierarchy
+                    and easy-to-navigate layout.
+                </p>
+
+                <h4>Solution & UX Approach</h4>
+                <ul>
+                    <li>User-centered layout with clear sections</li>
+                    <li>Smooth hover and transition effects</li>
+                    <li>Consistent color system and typography</li>
+                    <li>Responsive design for all screen sizes</li>
+                </ul>
+
+                <h4>Tools Used</h4>
+                <p>HTML, CSS, JavaScript, Figma</p>
             </div>
+
         </div>
+
+        <div class="project-card project-row">
+            <div class="project-description">
+                <h3>Food Delivery App UI</h3>
+
+                <h4>Project Overview</h4>
+                <p>
+                    The Food Delivery App UI focuses on delivering a seamless mobile experience
+                    from browsing restaurants to completing checkout. The interface emphasizes
+                    clarity, speed, and user comfort throughout the ordering flow.
+                </p>
+
+                <h4>User Goal</h4>
+                <p>
+                    Enable users to find food quickly, customize orders easily, and complete
+                    checkout with minimal friction.
+                </p>
+
+                <h4>UX Flow</h4>
+                <ul>
+                    <li>Home → Restaurant Listing</li>
+                    <li>Menu Selection → Cart</li>
+                    <li>Checkout → Order Confirmation</li>
+                </ul>
+
+                <h4>Key UX Enhancements</h4>
+                <ul>
+                    <li>Clear call-to-action buttons</li>
+                    <li>Visual feedback on user actions</li>
+                    <li>Mobile-first responsive layout</li>
+                </ul>
+
+                <h4>Tools Used</h4>
+                <p>Figma, HTML, CSS, JavaScript</p>
+            </div>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b1d4df104723621.5f69867166e66.png" alt="Mobile App UI">
+        
+        </div>
+
+        <div class="project-card project-row">
+                 <img src="https://static.vecteezy.com/system/resources/previews/041/761/097/original/personal-portfolio-illustration-with-profile-data-resume-or-self-improvement-to-attract-clients-and-employers-in-flat-cartoon-background-vector.jpg" alt="Portfolio UI">
+           <div class="project-description">
+                <h3>Personal Portfolio Website</h3>
+       
+                <h4>Project Overview</h4>
+                <p>
+                    This personal portfolio website showcases my UI/UX and development skills
+                    through a clean layout, smooth animations, and structured content flow.
+                    The design ensures recruiters can quickly understand my skills and projects.
+                </p>
+
+                <h4>Design Objectives</h4>
+                <ul>
+                    <li>Clear visual hierarchy</li>
+                    <li>Smooth transitions and micro-interactions</li>
+                    <li>Responsive across devices</li>
+                    <li>Minimal and modern UI</li>
+                </ul>
+
+                <h4>UX Improvements</h4>
+                <ul>
+                    <li>Scroll-based section flow</li>
+                    <li>Interactive hover effects</li>
+                    <li>Fast navigation</li>
+                </ul>
+
+                <h4>Tools Used</h4>
+                <p>HTML, CSS, JavaScript, Figma</p>
+            </div>
+
+        </div>
+
+
+
+        <div class="project-card project-row">
+
+
+            <div class="project-description">
+            <h3>BRUNT REVERSAL JUST-IN-TIME GLITCH PROPHECY</h3>
+                <p class="tech-stack"><strong>Tech Stack:</strong> React.js, Node.js, Java, MongoDB</p>
+
+                <h4>Project Overview</h4>
+                <p>
+                    Developed a real-time warehouse management system that streamlines inventory tracking,
+                    product retrieval via QR codes, and anomaly detection to enhance operational efficiency.
+                </p>
+
+                <h4>Role / Contribution</h4>
+                <ul>
+                    <li>Contributed to UI planning and screen layout design.</li>
+                    <li>Ensured user-friendly navigation and seamless interaction between frontend and backend.</li>
+                    <li>Created intuitive dashboards and interactive UI components for real-time monitoring.</li>
+                </ul>
+
+                <h4>Key Features / Achievements</h4>
+                <ul>
+                    <li>Real-time inventory updates with predictive analytics.</li>
+                    <li>Optimized workflow for warehouse operations.</li>
+                    <li>Improved user experience with clean layouts and responsive design.</li>
+                </ul>
+
+                <h4>Tools Used</h4>
+                <p>Figma, React.js, Node.js, Java, MongoDB</p>
+            </div>
+            <img src="C:\Users\prasa\OneDrive\Desktop\syntexhub\task1\29.06.2025_22.07.02_REC.png" alt="Project Image">
+         </div>
+
+    </div>
     </section>
 
-    <section id="projects" class="projects-section section-padding">
+    <!-- EDUCATION -->
+    <section id="education" class="tab-section">
         <div class="container">
-            <h2>🚀 Featured Projects</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <h3>BRUNT REVERSAL GLITCH PROPHECY</h3>
-                    <p class="tech-stack">React.js, Node.js, Java, MongoDB</p>
-                    <p>Real-time warehouse management system with QR code retrieval, inventory tracking, and anomaly detection for optimized operations.</p>
-                    <a href="#" target="_blank" class="project-link">View Details</a>
-                </div>
+        <h2>🎓 Education</h2>
 
-                <div class="project-card">
-                    <h3>REAL-TIME FISH DETECTION</h3>
-                    <p class="tech-stack">Python, OpenCV, YOLOv11, Norfair</p>
-                    <p>Designed a system for underwater fish detection and tracking, supporting marine research and aquaculture automation.</p>
-                    <a href="#" target="_blank" class="project-link">View Details</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>IoT Predictive Maintenance</h3>
-                    <p class="tech-stack">IoT, Embedded C, Sensors</p>
-                    <p>Award-winning system that reduces motor downtime and maintenance costs through predictive analysis (1st Prize - E-Cube 2023-24).</p>
-                    <a href="#" target="_blank" class="project-link">View Details</a>
-                </div>
-            </div>
+        <div class="project-card">
+            <h3>B.E – Computer Science Engineering</h3>
+            <p class="tech-stack">Meenakshi Sundararajan Engineering College</p>
+            <p>CGPA: 8.23 | 2022 – 2025</p>
         </div>
+
+        <div class="project-card">
+            <h3>Diploma – Electronics & Communication</h3>
+            <p class="tech-stack">Cheyyar Polytechnic College</p>
+            <p>Percentage: 92%</p>
+        </div>
+    </div>
     </section>
 
-    <section id="contact" class="contact-section section-padding">
+    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <section id="CERTIFICATIONS" class="tab-section">
+    <div class="container">
+        <h2>🏆 Certifications & Achievements</h2>
+
+        <div class="project-card">
+            <ul>
+                <li>UI/UX Design Fundamentals – Online Certification</li>
+                <li>Figma for UI Design – Online Course</li>
+                <li>Selenium Automation Testing – Code From Basic</li>
+                <li>Programming in Java – NPTEL</li>
+                <li><strong>1st Prize</strong> – Mini Project Competition (E-Cube 2023–24)</li>
+            </ul>
+        </div>
+    </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="tab-section">
         <div class="container">
-            <h2>📧 Get In Touch</h2>
-            <p>I'm currently seeking new opportunities. Feel free to connect!</p>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:prasanthsekar3794@gmail.com">prasanthsekar3794@gmail.com</a></p>
-                <p>Phone: +91 8667091610</p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/prasanth-sekar-826890283" target="_blank">prasanth-sekar-826890283</a></p>
-                <p>GitHub: <a href="https://github.com/Prasanthsekar3794" target="_blank">Prasanthsekar3794</a></p>
-            </div>
-        </div>
+        <h2>📧 Get In Touch</h2>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:prasanthsekar3794@gmail.com">prasanthsekar3794@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> Phone: +91 8667091610</p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/prasanth-sekar-826890283">https://linkedin.com/in/prasanth-sekar-826890283</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Prasanthsekar3794">https://github.com/Prasanthsekar3794</a></p>
+    </div>
     </section>
+</main>
 
-    <footer>
-        <p>&copy; 2025 Prasanth Sekar. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Prasanth Sekar. All rights reserved.</p>
+</footer>
+
+<script>
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabSections = document.querySelectorAll('.tab-section');
+
+    tabLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent scroll
+
+            // Remove active class from all links and sections
+            tabLinks.forEach(l => l.classList.remove('active'));
+            tabSections.forEach(s => s.classList.remove('active'));
+
+            // Add active class to clicked link and corresponding section
+            link.classList.add('active');
+            const tabId = link.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // Handle "View My Work" button click to switch to Projects tab
+    const viewWorkBtn = document.querySelector('.btn-primary');
+    if (viewWorkBtn) {
+        viewWorkBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+
+            // Simulate clicking the Projects nav link
+            const projectsLink = document.querySelector('[data-tab="projects"]');
+            if (projectsLink) {
+                projectsLink.click(); // Trigger the tab switch
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
