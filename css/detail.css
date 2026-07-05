@@ -1,0 +1,370 @@
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E50914;--red2:#b00610;
+  --bg:#141414;--bg2:#1e1e1e;--bg3:#222;
+  --card:#1c1c1c;--card2:#242424;
+  --border:#2a2a2a;
+  --text:#e5e5e5;--muted:#777;
+  --green:#46d369;--gold:#f5c518;
+  --sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+
+/* ══ NAV ══ */
+.nf-nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:68px;display:flex;align-items:center;gap:28px;
+  padding:0 56px;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.95) 0%,transparent 100%);
+  transition:background .4s;
+}
+.nf-nav.solid{background:rgba(20,20,20,0.98);box-shadow:0 1px 0 rgba(255,255,255,0.05)}
+.nf-logo{font-size:26px;font-weight:800;color:var(--red);letter-spacing:-1px;text-decoration:none;flex-shrink:0}
+.nf-back{
+  display:flex;align-items:center;gap:7px;color:#fff;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  padding:8px 18px;border-radius:4px;font-size:13px;font-weight:600;
+  cursor:pointer;text-decoration:none;transition:background .2s;white-space:nowrap;
+}
+.nf-back:hover{background:rgba(255,255,255,0.18)}
+.nf-nav-links{display:flex;gap:18px;list-style:none}
+.nf-nav-links a{color:#e5e5e5;text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.nf-nav-links a:hover{color:#b3b3b3}
+.nf-nav-r{margin-left:auto;display:flex;align-items:center;gap:12px}
+.nf-avatar{width:32px;height:32px;border-radius:4px;overflow:hidden;flex-shrink:0}
+.nf-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* ══ HERO ══ */
+.nf-hero{
+  position:relative;width:100%;height:100vh;min-height:600px;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.nf-hero-film{position:absolute;inset:0;overflow:hidden}
+.nf-hero-film img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  filter:brightness(0.35);transform:scale(1.05);
+}
+.nf-hero-color{position:absolute;inset:0}
+/* Netflix-exact vignette */
+.nf-hero-vignette{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(77deg,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 55%),
+    linear-gradient(to top,rgba(20,20,20,1) 0%,rgba(20,20,20,.8) 10%,rgba(20,20,20,.4) 25%,transparent 50%),
+    linear-gradient(to bottom,rgba(0,0,0,.4) 0%,transparent 20%);
+}
+/* grain texture */
+.nf-hero-grain{
+  position:absolute;inset:0;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.nf-hero-content{
+  position:relative;z-index:3;
+  padding:0 56px 100px;max-width:650px;
+  animation:heroSlideIn .7s cubic-bezier(.25,.46,.45,.94) both;
+}
+@keyframes heroSlideIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* Netflix N badge */
+.nf-series-tag{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;font-size:13px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.nf-n-mark{
+  background:var(--red);color:#fff;
+  font-size:11px;font-weight:900;padding:3px 9px;border-radius:2px;letter-spacing:0;
+}
+.nf-type-mark{
+  font-size:10px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.nf-hero-title{
+  font-size:clamp(42px,7vw,88px);
+  font-weight:800;color:#fff;line-height:.92;
+  letter-spacing:-3px;margin-bottom:14px;
+  text-shadow:2px 4px 40px rgba(0,0,0,.5);
+}
+.nf-hero-title span{display:block}
+.nf-hero-title em{font-style:normal}
+
+.nf-hero-company{
+  font-size:19px;color:rgba(255,255,255,.65);
+  font-weight:300;margin-bottom:20px;letter-spacing:.01em;
+}
+
+/* Netflix metadata row */
+.nf-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.nf-meta-match{color:var(--green);font-size:15px;font-weight:700}
+.nf-meta-year{color:rgba(255,255,255,.65);font-size:14px}
+.nf-meta-dur{
+  font-size:12px;color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.28);padding:2px 8px;border-radius:2px;
+}
+.nf-meta-hd{
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.25);padding:2px 8px;border-radius:3px;
+}
+
+.nf-hero-desc{
+  font-size:16px;color:rgba(255,255,255,.75);
+  line-height:1.75;max-width:500px;margin-bottom:32px;
+}
+
+/* Netflix-exact buttons */
+.nf-btns{display:flex;gap:10px;flex-wrap:wrap}
+.nf-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 30px;border-radius:4px;font-size:16px;font-weight:700;
+  cursor:pointer;border:none;text-decoration:none;transition:all .18s;
+  letter-spacing:.02em;
+}
+.nf-btn-play{background:#fff;color:#000}
+.nf-btn-play:hover{background:#e6e6e6;transform:scale(1.01)}
+.nf-btn-play::before{content:"▶";font-size:17px}
+.nf-btn-more{background:rgba(109,109,110,.7);color:#fff}
+.nf-btn-more:hover{background:rgba(109,109,110,.5)}
+.nf-btn-more::before{content:"ℹ";font-size:16px}
+.nf-btn-cert{background:rgba(109,109,110,.7);color:#fff}
+.nf-btn-cert:hover{background:rgba(109,109,110,.5)}
+.nf-btn-cert::before{content:"📄"}
+.nf-btn-dl{background:rgba(109,109,110,.5);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.nf-btn-dl:hover{background:rgba(109,109,110,.35)}
+.nf-btn-dl::before{content:"⬇"}
+
+/* ══ BELOW HERO — NETFLIX CONTENT LAYOUT ══ */
+.nf-below{
+  position:relative;z-index:4;
+  display:grid;
+  grid-template-columns:1fr 370px;
+  gap:0;
+  padding:32px 56px 80px;
+  background:var(--bg);
+}
+
+/* LEFT COLUMN */
+.nf-left{padding-right:48px}
+
+/* About block */
+.nf-about{margin-bottom:36px}
+.nf-about-p{
+  font-size:15px;color:#bbb;line-height:1.8;
+}
+.nf-about-p strong{color:#e5e5e5}
+
+/* Details row (Netflix shows this under description) */
+.nf-details-row{
+  display:flex;flex-direction:column;gap:10px;
+  margin-bottom:36px;font-size:13px;
+}
+.nf-dr-item{display:flex;gap:6px;flex-wrap:wrap}
+.nf-dr-label{color:var(--muted);flex-shrink:0}
+.nf-dr-val{color:var(--text)}
+.nf-dr-val a{color:var(--red);text-decoration:none}
+.nf-dr-val a:hover{text-decoration:underline}
+
+/* Key Points */
+.nf-kp-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:16px}
+.nf-kp-list{display:flex;flex-direction:column;gap:8px;margin-bottom:40px}
+.nf-kp-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;padding:16px 18px;
+  transition:border-color .2s,transform .2s;
+  cursor:default;
+}
+.nf-kp-item:hover{border-color:rgba(255,255,255,.12);transform:translateX(4px)}
+.nf-kp-icon{font-size:20px;flex-shrink:0;width:28px;text-align:center;margin-top:1px}
+.nf-kp-text{font-size:13px;color:#aaa;line-height:1.65}
+.nf-kp-text strong{color:#ddd}
+
+/* Tags */
+.nf-tags-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:14px}
+.nf-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:48px}
+.nf-tag{
+  font-size:12px;padding:6px 14px;border-radius:20px;font-weight:500;
+  background:rgba(255,255,255,.07);color:var(--muted);
+  border:1px solid rgba(255,255,255,.09);
+  transition:all .2s;cursor:default;
+}
+.nf-tag:hover{background:rgba(229,9,20,.1);border-color:rgba(229,9,20,.3);color:var(--red)}
+
+/* ══ MORE LIKE THIS — Netflix horizontal shelf ══ */
+.nf-more-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:16px}
+.nf-shelf{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:4px;
+}
+.nf-sc{
+  position:relative;border-radius:4px;overflow:hidden;
+  background:var(--card2);cursor:pointer;
+  transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s,z-index 0s;
+  border:1px solid var(--border);
+}
+.nf-sc:hover{transform:scale(1.08);box-shadow:0 20px 55px rgba(0,0,0,.9);z-index:20}
+.nf-sc-thumb{
+  width:100%;aspect-ratio:16/9;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.nf-sc-thumb-bg{
+  position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;font-size:72px;opacity:.1;filter:blur(6px);
+}
+.nf-sc-icon{position:relative;z-index:1;font-size:38px}
+
+/* Netflix hover panel on similar cards */
+.nf-sc-hover{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.97) 0%,transparent 55%);
+  opacity:0;transition:opacity .22s;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:12px;
+}
+.nf-sc:hover .nf-sc-hover{opacity:1}
+.nf-sc-hover-row{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+.nf-sc-btn{
+  width:26px;height:26px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.5);
+  background:rgba(0,0,0,.5);color:#fff;font-size:11px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .15s;
+}
+.nf-sc-btn:hover{border-color:#fff;background:rgba(255,255,255,.15)}
+.nf-sc-btn.play{background:#fff;color:#000;border-color:#fff}
+.nf-sc-hover-title{font-size:11px;font-weight:700;color:#fff;line-height:1.3}
+.nf-sc-hover-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:4px}
+.nf-sc-hover-tag{font-size:9px;padding:1px 6px;border-radius:2px;background:rgba(255,255,255,.08);color:#bbb}
+
+.nf-sc-body{padding:10px 11px}
+.nf-sc-title{font-size:12px;font-weight:600;color:#fff;margin-bottom:2px;line-height:1.3}
+.nf-sc-sub{font-size:10px;color:var(--muted)}
+
+/* ══ RIGHT SIDEBAR ══ */
+.nf-right{
+  padding-left:0;
+  display:flex;flex-direction:column;gap:16px;
+  position:sticky;top:84px;align-self:start;
+}
+
+/* Quick-info card */
+.nf-info-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+}
+.nf-info-card-top{height:4px}
+.nf-info-body{padding:20px}
+.nf-info-label{
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+}
+.nf-info-rows{display:flex;flex-direction:column;gap:11px}
+.nf-info-row{display:flex;flex-direction:column;gap:2px}
+.nf-info-key{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.nf-info-val{font-size:13px;color:#ddd;font-family:var(--mono)}
+.nf-info-val a{color:var(--red);text-decoration:none}
+.nf-info-val a:hover{text-decoration:underline}
+
+/* PDF Certificate card */
+.nf-cert-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;cursor:pointer;
+  transition:border-color .2s,transform .2s;
+}
+.nf-cert-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-2px)}
+.nf-cert-thumb{
+  width:100%;height:130px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.nf-cert-thumb-bg{
+  position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;font-size:110px;opacity:.08;filter:blur(8px);
+}
+.nf-cert-thumb-icon{position:relative;z-index:1;font-size:50px}
+.nf-cert-body{padding:16px}
+.nf-cert-label{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.nf-cert-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:12px;line-height:1.35}
+.nf-cert-btn{
+  width:100%;padding:11px;border-radius:4px;border:none;
+  background:var(--red);color:#fff;font-size:13px;font-weight:700;
+  cursor:pointer;transition:background .18s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.nf-cert-btn:hover{background:var(--red2)}
+.nf-cert-dl{
+  width:100%;padding:9px;border-radius:4px;margin-top:8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;
+  transition:all .18s;display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.nf-cert-dl:hover{background:rgba(255,255,255,.13);color:#fff}
+
+/* ══ PDF VIEWER ══ */
+#pdfV{
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.97);
+  display:none;flex-direction:column;
+}
+#pdfV.open{display:flex;animation:pvIn .25s ease}
+@keyframes pvIn{from{opacity:0}to{opacity:1}}
+.pv-top{
+  height:58px;flex-shrink:0;
+  display:flex;align-items:center;gap:14px;
+  padding:0 24px;
+  background:rgba(22,22,22,.99);
+  border-bottom:1px solid var(--border);
+}
+.pv-top-info{flex:1}
+.pv-top-title{font-size:14px;font-weight:700;color:#fff}
+.pv-top-sub{font-size:11px;color:var(--muted);margin-top:1px;font-family:var(--mono)}
+.pv-top-btns{display:flex;gap:8px}
+.pvb{
+  padding:8px 18px;border-radius:4px;font-size:12px;
+  font-weight:600;cursor:pointer;border:none;
+  display:flex;align-items:center;gap:6px;transition:all .18s;
+}
+.pvb-dl{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12)}
+.pvb-dl:hover{background:rgba(255,255,255,.15)}
+.pvb-x{background:rgba(229,9,20,.13);color:var(--red);border:1px solid rgba(229,9,20,.28)}
+.pvb-x:hover{background:rgba(229,9,20,.25)}
+.pv-body{flex:1;padding:18px 24px;display:flex;min-height:0}
+.pv-body iframe{width:100%;height:100%;border:none;border-radius:8px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.7)}
+.pv-foot{
+  height:38px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  background:rgba(22,22,22,.99);border-top:1px solid var(--border);
+  font-size:11px;color:var(--muted);
+}
+
+/* ══ TOAST ══ */
+#toast{
+  position:fixed;bottom:26px;right:26px;z-index:9999;
+  background:#1e1e1e;color:#fff;padding:13px 20px;
+  border-radius:6px;font-size:13px;max-width:300px;
+  border-left:3px solid var(--green);
+  box-shadow:0 8px 32px rgba(0,0,0,.8);
+  transform:translateY(80px);opacity:0;
+  transition:all .35s cubic-bezier(.25,.46,.45,.94);
+}
+#toast.show{transform:translateY(0);opacity:1}
+
+/* ══ WIPE TRANSITION ══ */
+#wipe{
+  position:fixed;inset:0;z-index:8000;
+  background:var(--red);transform:scaleX(0);
+  pointer-events:none;display:none;
+}
+
+@media(max-width:900px){
+  .nf-nav{padding:0 18px;gap:12px}
+  .nf-nav-links{display:none}
+  .nf-hero-content{padding:0 18px 80px;max-width:100%}
+  .nf-below{grid-template-columns:1fr;padding:24px 18px 60px}
+  .nf-left{padding-right:0}
+  .nf-right{position:static}
+  .nf-shelf{grid-template-columns:repeat(2,1fr)}
+}
