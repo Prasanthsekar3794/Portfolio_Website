@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prasanth Sekar — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ══ SPLASH ══ -->
+<div id="splash">
+  <div class="splash-logo">PRASANTH.</div>
+</div>
+
+<!-- ══ PAGE TRANSITION WIPE ══ -->
+<div id="transition-wipe"></div>
+
+<!-- ══════════════════════════════
+     LOGIN PAGE
+══════════════════════════════ -->
+<div id="login-page">
+  <div class="login-bg">
+    <img class="login-bg-img" src="assets/prasanth.jpg" alt="bg"/>
+    <div class="login-bg-gradient"></div>
+  </div>
+  <nav class="login-nav">
+    <div class="login-logo">PRASANTH.</div>
+    <button class="login-nav-lang">🌐 English ▾</button>
+  </nav>
+  <div class="login-card">
+    <div class="login-title">Sign In</div>
+    <div class="login-error" id="login-error"></div>
+    <div class="login-field">
+      <input class="login-input" id="l-email" type="email" placeholder=" " autocomplete="username"/>
+      <label class="login-float-label">Email or mobile number</label>
+    </div>
+    <div class="login-field">
+      <input class="login-input" id="l-pass" type="password" placeholder=" " autocomplete="current-password"/>
+      <label class="login-float-label">Password</label>
+    </div>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-loader" id="login-loader">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="login-divider">OR</div>
+    <button class="login-guest-btn" onclick="doGuestLogin()">👤 Continue as Guest</button>
+    <div class="login-hint">
+      Demo: <strong>guest@prasanth.dev</strong> / <strong>portfolio2025</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     PROFILE PICKER ("Who's watching?")
+══════════════════════════════ -->
+<div id="profile-page">
+  <div class="profile-picker">
+    <h1>Who's watching?</h1>
+    <div class="profile-avatars">
+      <div class="p-avatar" onclick="goToDashboard('recruiter')">
+        <div class="p-avatar-img">
+          <img src="assets/prasanth.jpg" alt="Prasanth"/>
+        </div>
+        <span class="p-avatar-name">Prasanth</span>
+      </div>
+      <div class="p-avatar p-avatar-guest" onclick="goToDashboard('guest')">
+        <div class="p-avatar-img" style="background:#2a2a2a;display:flex;align-items:center;justify-content:center;font-size:52px">👤</div>
+        <span class="p-avatar-name">Guest</span>
+      </div>
+      <div class="p-avatar" onclick="goToDashboard('recruiter')">
+        <div class="p-avatar-img" style="background:linear-gradient(135deg,#1a0505,#3d0a0a);display:flex;align-items:center;justify-content:center;font-size:52px">💼</div>
+        <span class="p-avatar-name">Recruiter</span>
+      </div>
+    </div>
+    <button class="manage-profiles" onclick="doLogout()">← Back to Sign In</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     MAIN PORTFOLIO / DASHBOARD
+══════════════════════════════ -->
+<div id="main-page">
+
+  <!-- TOP NAV -->
+  <nav class="topnav" id="topnav">
+    <a class="nav-logo" href="#">PRASANTH.</a>
+    <ul class="nav-links">
+      <li><a href="#hero-sec">Home</a></li>
+      <li><a href="#proj-sec">Projects</a></li>
+      <li><a href="#exp-sec">Experience</a></li>
+      <li><a href="#skill-sec">Skills</a></li>
+      <li><a href="#edu-sec">Education</a></li>
+      <li><a href="#cert-sec">Certifications</a></li>
+      <li><a href="#contact-sec">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-bell" onclick="showToast('🔔 3 new recruiter views this week!')">🔔</button>
+      <div class="nav-profile">
+        <img src="assets/prasanth.jpg" alt="Prasanth"/>
+      </div>
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero-sec">
+    <div class="hero-film">
+      <img src="assets/prasanth.jpg" alt="Prasanth Sekar"/>
+    </div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <div class="hero-n-badge"><b>N</b> SOFTWARE ENGINEER</div>
+      <h1 class="hero-name">Prasanth<br/><em>Sekar</em></h1>
+      <p class="hero-tagline">Full-Stack · Mobile · Computer Vision</p>
+      <div class="hero-pills">
+        <span class="hpill hpill-g">● Open to Work</span>
+        <span class="hpill hpill-r">Chennai, India</span>
+        <span class="hpill hpill-w">CGPA 8.23</span>
+        <span class="hpill hpill-w">B.E. CSE 2025</span>
+      </div>
+      <p class="hero-desc">Computer Science Engineering graduate specialising in full-stack development, Android apps, and computer vision. Java · React.js · Node.js · MongoDB · Spring Boot · Python.</p>
+      <div class="hero-btns">
+        <a class="hbtn hbtn-w" href="#proj-sec">View Projects</a>
+        <a class="hbtn hbtn-g" onclick="openModal('m-resume')">My Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="sbar-cell fi"><div class="sbar-num">8<span>.23</span></div><div class="sbar-lbl">CGPA — B.E. CSE</div></div>
+    <div class="sbar-cell fi"><div class="sbar-num">92<span>%</span></div><div class="sbar-lbl">Diploma Score</div></div>
+    <div class="sbar-cell fi"><div class="sbar-num">5<span>+</span></div><div class="sbar-lbl">Projects Built</div></div>
+    <div class="sbar-cell fi"><div class="sbar-num">4<span>+</span></div><div class="sbar-lbl">Roles & Internships</div></div>
+    <div class="sbar-cell fi"><div class="sbar-num">5</div><div class="sbar-lbl">Certifications</div></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="shelf-section" id="proj-sec" style="padding-top:48px">
+    <div class="row-label">🔥 Featured Projects <span class="see-all">Explore all ›</span></div>
+    <div class="shelf-grid sg-5">
+      <div class="ncard fi" onclick="goDetail('proj_wms')">
+        <div class="ncbadge ncb-r">⭐ Featured</div>
+        <div class="ncard-thumb" style="background:linear-gradient(135deg,#2d0808,#1a0404)">
+          <div class="ncard-thumb-bg">⚙️</div><div class="ncard-thumb-icon">📦</div>
+        </div>
+        <div class="ncard-body">
+          <div class="ncard-title">Brunt Reversal — WMS</div>
+          <div class="ncard-sub">Full Stack · 2024</div>
+          <div class="ncard-tags"><span class="ntag">React</span><span class="ntag">Node</span><span class="ntag">Java</span><span class="ntag">MongoDB</span></div>
+        </div>
+        <div class="ncard-hover">
+          <div class="nh-title">Brunt Reversal WMS</div>
+          <div class="nh-desc">Real-time warehouse with QR inventory & Glitch-Prophecy anomaly engine.</div>
+          <div class="nh-row"><div class="nha play">▶</div><div class="nha">+</div><div class="nha">↗</div></div>
+        </div>
+      </div>
+      <div class="ncard fi" onclick="goDetail('proj_fish')">
+        <div class="ncbadge ncb-p">🤖 AI/ML</div>
+        <div class="ncard-thumb" style="background:linear-gradient(135deg,#08082d,#0a0a3d)">
+          <div class="ncard-thumb-bg">🐟</div><div class="ncard-thumb-icon">🎯</div>
+        </div>
+        <div class="ncard-body">
+          <div class="ncard-title">Fish Detection & Tracking</div>
+          <div class="ncard-sub">Computer Vision · 2024</div>
+          <div class="ncard-tags"><span class="ntag">Python</span><span class="ntag">YOLOv11</span><span class="ntag">OpenCV</span></div>
+        </div>
+        <div class="ncard-hover">
+          <div class="nh-title">Fish Detection & Tracking</div>
+          <div class="nh-desc">YOLOv11 + Norfair multi-object tracking for marine research.</div>
+          <div class="nh-row"><div class="nha play">▶</div><div class="nha">+</div></div>
+        </div>
+      </div>
+      <div class="ncard fi" onclick="goDetail('proj_country')">
+        <div class="ncbadge ncb-g">⭐ GitHub</div>
+        <div class="ncard-thumb" style="background:linear-gradient(135deg,#0a2210,#082a12)">
+          <div class="ncard-thumb-bg">🌍</div><div class="ncard-thumb-icon">🗺️</div>
+        </div>
+        <div class="ncard-body">
+          <div class="ncard-title">Country Details App</div>
+          <div class="ncard-sub">Frontend · REST API</div>
+          <div class="ncard-tags"><span class="ntag">JS</span><span class="ntag">HTML5</span><span class="ntag">CSS3</span></div>
+        </div>
+        <div class="ncard-hover">
+          <div class="nh-title">Country Details App</div>
+          <div class="nh-desc">Live country data with search, flags, population and more.</div>
+          <div class="nh-row"><div class="nha play">▶</div><div class="nha">↗</div></div>
+        </div>
+      </div>
+      <div class="ncard fi" onclick="goDetail('proj_obesity')">
+        <div class="ncbadge ncb-g">⭐ GitHub</div>
+        <div class="ncard-thumb" style="background:linear-gradient(135deg,#1a0e08,#2a180e)">
+          <div class="ncard-thumb-bg">🏥</div><div class="ncard-thumb-icon">💊</div>
+        </div>
+        <div class="ncard-body">
+          <div class="ncard-title">Obesity Awareness Page</div>
+          <div class="ncard-sub">Frontend · Health</div>
+          <div class="ncard-tags"><span class="ntag">HTML5</span><span class="ntag">CSS3</span><span class="ntag">Responsive</span></div>
+        </div>
+        <div class="ncard-hover">
+          <div class="nh-title">Obesity Awareness</div>
+          <div class="nh-desc">Rich health awareness site with custom typography and multi-section layout.</div>
+          <div class="nh-row"><div class="nha play">▶</div><div class="nha">↗</div></div>
+        </div>
+      </div>
+      <div class="ncard fi" onclick="goDetail('proj_uni')">
+        <div class="ncard-thumb" style="background:linear-gradient(135deg,#08082a,#101030)">
+          <div class="ncard-thumb-bg">🎓</div><div class="ncard-thumb-icon">🏛️</div>
+        </div>
+        <div class="ncard-body">
+          <div class="ncard-title">University Management System</div>
+          <div class="ncard-sub">Desktop App · Java + MySQL</div>
+          <div class="ncard-tags"><span class="ntag">Java</span><span class="ntag">MySQL</span><span class="ntag">JDBC</span></div>
+        </div>
+        <div class="ncard-hover">
+          <div class="nh-title">University Management</div>
+          <div class="nh-desc">Enrollment, attendance & grades with MySQL via JDBC.</div>
+          <div class="nh-row"><div class="nha play">▶</div><div class="nha">↗</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="shelf-section" id="exp-sec">
+    <div class="row-label">💼 Work Experience <span class="see-all">View all ›</span></div>
+    <div class="shelf-grid sg-4">
+      <div class="wcard fi">
+        <div class="wc-type">E-Publishing · Full Time</div>
+        <div class="wc-role">Senior E-Pub Developer</div>
+        <div class="wc-company">DiacriTech Technologies Pvt. Ltd</div>
+        <div class="wc-year">Jul 2017 – Sep 2022</div>
+        <div class="wc-tags"><span class="wc-tag">XML</span><span class="wc-tag">E-Publishing</span><span class="wc-tag">QA</span></div>
+        <div class="wc-doc-row">
+          <button class="wc-doc-btn" onclick="goDetail('exp_diacri')">ℹ Details</button>
+          <button class="wc-doc-btn wc-doc-pdf" onclick="goDetail('exp_diacri')">📄 View Certificate</button>
+        </div>
+      </div>
+      <div class="wcard fi">
+        <div class="wc-type">Mobile Dev · Internship</div>
+        <div class="wc-role">Mobile App Developer Intern</div>
+        <div class="wc-company">KBP Smarther Solutions Pvt. Ltd</div>
+        <div class="wc-year">Feb 2023</div>
+        <div class="wc-tags"><span class="wc-tag">Java</span><span class="wc-tag">Android Studio</span><span class="wc-tag">Mobile UI</span></div>
+        <div class="wc-doc-row">
+          <button class="wc-doc-btn" onclick="goDetail('exp_kbp')">ℹ Details</button>
+          <button class="wc-doc-btn wc-doc-pdf" onclick="goDetail('exp_kbp')">📄 View Certificate</button>
+        </div>
+      </div>
+      <div class="wcard fi" onclick="goDetail('exp_empower')">
+        <div class="wc-type">Web Dev · Internship</div>
+        <div class="wc-role">Software Developer Intern</div>
+        <div class="wc-company">Empower Software Hub</div>
+        <div class="wc-year">2024</div>
+        <div class="wc-tags"><span class="wc-tag">Java</span><span class="wc-tag">JavaScript</span><span class="wc-tag">REST APIs</span></div>
+      </div>
+      <div class="wcard fi" onclick="goDetail('exp_lumina')" style="border-left-color:#b464ff">
+        <div class="wc-type" style="color:#b464ff">Freelance · 2025</div>
+        <div class="wc-role">Freelance PDF Developer</div>
+        <div class="wc-company">Lumina Datamatics · John Wiley</div>
+        <div class="wc-year">Apr – Jul 2025</div>
+        <div class="wc-tags"><span class="wc-tag" style="background:rgba(180,100,255,0.1);color:#b464ff">PDF</span><span class="wc-tag" style="background:rgba(180,100,255,0.1);color:#b464ff">Freelance</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="skill-wrap" id="skill-sec">
+    <div class="skill-section-header">
+      <div>
+        <div class="skill-section-title">⚡ Technical Skills</div>
+        <div class="skill-section-sub">Languages · Frameworks · Tools · AI/ML</div>
+      </div>
+    </div>
+
+    <!-- Programming Languages -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(229,9,20,0.12)">💻</div>
+        <div class="sk-block-label" style="color:#E50914">Programming Languages</div>
+        <div class="sk-block-count">3 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#E50914">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">☕</div>
+            <div><div class="sk-card-name">Java</div><div class="sk-card-type">Primary Language</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">92%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="92"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#f7df1e">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🟨</div>
+            <div><div class="sk-card-name">JavaScript</div><div class="sk-card-type">Web & Node</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">85%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#3572A5">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🐍</div>
+            <div><div class="sk-card-name">Python</div><div class="sk-card-type">AI / Scripting</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">78%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="78"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frontend -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(97,218,251,0.1)">🎨</div>
+        <div class="sk-block-label" style="color:#61dafb">Frontend Development</div>
+        <div class="sk-block-count">4 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#61dafb">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">⚛️</div>
+            <div><div class="sk-card-name">React.js</div><div class="sk-card-type">UI Library</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">88%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="88"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#e44d26">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🌐</div>
+            <div><div class="sk-card-name">HTML5</div><div class="sk-card-type">Markup</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">95%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="95"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#264de4">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🎨</div>
+            <div><div class="sk-card-name">CSS3</div><div class="sk-card-type">Styling</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">90%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="90"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#dd0031">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🔺</div>
+            <div><div class="sk-card-name">Angular</div><div class="sk-card-type">Framework</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">72%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="72"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(70,211,105,0.1)">⚙️</div>
+        <div class="sk-block-label" style="color:#46d369">Backend Development</div>
+        <div class="sk-block-count">4 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#46d369">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🟢</div>
+            <div><div class="sk-card-name">Node.js</div><div class="sk-card-type">Runtime</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">85%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#46d369">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🚀</div>
+            <div><div class="sk-card-name">Express.js</div><div class="sk-card-type">Web Framework</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">82%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="82"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#6db33f">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🍃</div>
+            <div><div class="sk-card-name">Spring Boot</div><div class="sk-card-type">Java Framework</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">75%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="75"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#ff9800">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🔗</div>
+            <div><div class="sk-card-name">REST APIs</div><div class="sk-card-type">Architecture</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">88%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="88"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Databases -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(0,104,74,0.15)">🗄️</div>
+        <div class="sk-block-label" style="color:#00ed64">Databases</div>
+        <div class="sk-block-count">4 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#00ed64">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🍃</div>
+            <div><div class="sk-card-name">MongoDB</div><div class="sk-card-type">NoSQL</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">86%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="86"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#00758f">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🐬</div>
+            <div><div class="sk-card-name">MySQL</div><div class="sk-card-type">Relational DB</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">83%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="83"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#e38c00">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">📋</div>
+            <div><div class="sk-card-name">SQL</div><div class="sk-card-type">Query Language</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">80%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="80"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#f5c518">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">☕</div>
+            <div><div class="sk-card-name">JDBC</div><div class="sk-card-type">Java DB Connect</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">78%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="78"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(248,161,0,0.1)">🛠️</div>
+        <div class="sk-block-label" style="color:#f8a100">Tools & Platforms</div>
+        <div class="sk-block-count">5 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#f14e32">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🔁</div>
+            <div><div class="sk-card-name">Git</div><div class="sk-card-type">Version Control</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">88%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="88"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#fff">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🐙</div>
+            <div><div class="sk-card-name">GitHub</div><div class="sk-card-type">Code Hosting</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">87%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="87"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#007acc">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🔵</div>
+            <div><div class="sk-card-name">VS Code</div><div class="sk-card-type">IDE / Editor</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">93%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="93"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#3ddc84">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">📱</div>
+            <div><div class="sk-card-name">Android Studio</div><div class="sk-card-type">Mobile IDE</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">80%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="80"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#ff6c37">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">📮</div>
+            <div><div class="sk-card-name">Postman</div><div class="sk-card-type">API Testing</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">85%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI / CV -->
+    <div class="sk-block">
+      <div class="sk-block-header">
+        <div class="sk-block-icon" style="background:rgba(123,47,255,0.12)">🤖</div>
+        <div class="sk-block-label" style="color:#b464ff">AI / Computer Vision</div>
+        <div class="sk-block-count">5 skills</div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card" style="--sk-color:#b464ff">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">👁️</div>
+            <div><div class="sk-card-name">OpenCV</div><div class="sk-card-type">Computer Vision</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">80%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="80"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#b464ff">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🎯</div>
+            <div><div class="sk-card-name">YOLOv11</div><div class="sk-card-type">Object Detection</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">75%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="75"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#b464ff">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">📡</div>
+            <div><div class="sk-card-name">Norfair</div><div class="sk-card-type">Object Tracking</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">72%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="72"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#46d369">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🧪</div>
+            <div><div class="sk-card-name">Manual Testing</div><div class="sk-card-type">QA</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">85%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div>
+          </div>
+        </div>
+        <div class="sk-card" style="--sk-color:#46d369">
+          <div class="sk-card-top">
+            <div class="sk-card-ico">🤖</div>
+            <div><div class="sk-card-name">Automation Testing</div><div class="sk-card-type">QA Automation</div></div>
+            <div class="sk-dot"></div>
+          </div>
+          <div class="sk-bar-wrap">
+            <div class="sk-bar-label"><span class="sk-bar-text">Proficiency</span><span class="sk-bar-pct">74%</span></div>
+            <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="74"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="shelf-section" id="edu-sec">
+    <div class="row-label">🎓 Education</div>
+    <div class="edu-grid">
+      <div class="edu-card fi">
+        <div class="edu-badge">Bachelor's Degree</div>
+        <div class="edu-deg">B.E. Computer Science & Engineering</div>
+        <div class="edu-school">Meenakshi Sundararajan Engineering College, Chennai · 2022–2025</div>
+        <div class="edu-score">8.23 <span style="font-size:16px;color:var(--muted)">CGPA</span></div>
+        <div class="edu-score-sub">Out of 10</div>
+        <div class="edu-bar"><div class="edu-bar-fill" style="width:82.3%"></div></div>
+      </div>
+      <div class="edu-card fi">
+        <div class="edu-badge">Diploma</div>
+        <div class="edu-deg">Electronics & Communication Engineering</div>
+        <div class="edu-school">Cheyyar Polytechnic College, Cheyyar · 2014–2016</div>
+        <div class="edu-score">92 <span style="font-size:16px;color:var(--muted)">%</span></div>
+        <div class="edu-score-sub">Percentage</div>
+        <div class="edu-bar"><div class="edu-bar-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="shelf-section" id="cert-sec">
+    <div class="row-label">🏆 Certifications & Licenses</div>
+    <div class="cert-list">
+      <div class="cert-row fi" onclick="goDetail('cert_java')">
+        <div class="cert-ico" style="background:#c0392b;color:#fff;font-size:18px">N</div>
+        <div class="cert-info-wrap">
+          <div class="cert-name">Programming in Java</div>
+          <div class="cert-iss">NPTEL · IIT Kharagpur · Jan–Apr 2024 · Score: 52%</div>
+          <div class="cert-tags"><span class="c-tag">Java</span><span class="c-tag">OOP</span><span class="c-tag">Multithreading</span><span class="c-tag">JDBC</span></div>
+        </div>
+        <span class="cert-view-badge">📄 View PDF</span>
+      </div>
+      <div class="cert-row fi" onclick="goDetail('cert_mongo')">
+        <div class="cert-ico" style="background:#00684a;font-size:22px">🍃</div>
+        <div class="cert-info-wrap">
+          <div class="cert-name">MongoDB Node.js Developer Path</div>
+          <div class="cert-iss">MongoDB, Inc · SmartBridge · 27 Sep 2024 · ID: MDB94q7vo6yj8</div>
+          <div class="cert-tags"><span class="c-tag">MongoDB</span><span class="c-tag">Node.js</span><span class="c-tag">NoSQL</span><span class="c-tag">Aggregation</span></div>
+        </div>
+        <span class="cert-view-badge">📄 View PDF</span>
+      </div>
+      <div class="cert-row fi" onclick="goDetail('cert_mern')">
+        <div class="cert-ico" style="background:#2c2438;color:#d4af37;font-size:13px;font-weight:900">EGC</div>
+        <div class="cert-info-wrap">
+          <div class="cert-name">MERN Full Stack Course</div>
+          <div class="cert-iss">Empower Guiding Centre · Oct 2024 – Feb 2025 · Exemplary</div>
+          <div class="cert-tags"><span class="c-tag">MongoDB</span><span class="c-tag">Express</span><span class="c-tag">React</span><span class="c-tag">Node</span></div>
+        </div>
+        <span class="cert-view-badge">📄 View PDF</span>
+      </div>
+      <div class="cert-row fi" onclick="goDetail('cert_egc')">
+        <div class="cert-ico" style="background:#1a2a3a;font-size:22px">💼</div>
+        <div class="cert-info-wrap">
+          <div class="cert-name">Java Internship Certificate</div>
+          <div class="cert-iss">Empower Software Hub · Jul–Aug 2024 · Commendable</div>
+          <div class="cert-tags"><span class="c-tag">Java</span><span class="c-tag">OOP</span><span class="c-tag">Project Development</span></div>
+        </div>
+        <span class="cert-view-badge">📄 View PDF</span>
+      </div>
+      <div class="cert-row fi">
+        <div class="cert-ico" style="background:#1a3a5c;font-size:22px">🌐</div>
+        <div class="cert-info-wrap">
+          <div class="cert-name">Front End Development Fundamentals</div>
+          <div class="cert-iss">Web Development Certification · Responsive Design · Best Practices</div>
+          <div class="cert-tags"><span class="c-tag">HTML5</span><span class="c-tag">CSS3</span><span class="c-tag">JavaScript</span><span class="c-tag">Responsive</span></div>
+        </div>
+        <div class="cert-arr">›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact-sec" style="padding-bottom:56px">
+    <div style="padding:0 56px 16px"><div class="row-label">📬 Get In Touch</div></div>
+    <div class="contact-wrap">
+      <div class="cinfo">
+        <div class="c-section-title">Contact Information</div>
+        <div class="cinfo-row"><div class="ci-icon">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Chennai, India</div></div></div>
+        <div class="cinfo-row"><div class="ci-icon">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:prasanthsekar3794@gmail.com">prasanthsekar3794@gmail.com</a></div></div></div>
+        <div class="cinfo-row"><div class="ci-icon">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:+918667091610">+91 8667091610</a></div></div></div>
+        <div class="cinfo-row"><div class="ci-icon">💼</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val"><a href="https://linkedin.com/in/prasanth-sekar-826890283" target="_blank">prasanth-sekar-826890283</a></div></div></div>
+        <div class="cinfo-row"><div class="ci-icon">🐙</div><div><div class="ci-lbl">GitHub</div><div class="ci-val"><a href="https://github.com/Prasanthsekar3794" target="_blank">Prasanthsekar3794</a></div></div></div>
+        <div class="social-btns">
+          <a class="sbtn sb-gh" href="https://github.com/Prasanthsekar3794" target="_blank">🐙 GitHub</a>
+          <a class="sbtn sb-li" href="https://linkedin.com/in/prasanth-sekar-826890283" target="_blank">💼 LinkedIn</a>
+        </div>
+      </div>
+      <div class="cform">
+        <div class="c-section-title">Send a Message</div>
+        <div class="cf-group"><label class="cf-lbl">Your Name</label><input class="cf-input" id="cf-name" placeholder="e.g. Rajan Kumar"/></div>
+        <div class="cf-group"><label class="cf-lbl">Email</label><input class="cf-input" id="cf-email" type="email" placeholder="you@example.com"/></div>
+        <div class="cf-group"><label class="cf-lbl">Subject</label><input class="cf-input" id="cf-subject" placeholder="e.g. Job Opportunity"/></div>
+        <div class="cf-group"><label class="cf-lbl">Message</label><textarea class="cf-textarea" id="cf-msg" placeholder="Tell Prasanth what you have in mind…"></textarea></div>
+        <button class="cf-submit" onclick="handleContact()">▶ Send Message</button>
+        <div id="cf-status" style="display:none;margin-top:12px;padding:12px;font-size:13px;border-radius:4px;border:1px solid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="sf-logo">PRASANTH.</div>
+    <div class="sf-links">
+      <a href="https://github.com/Prasanthsekar3794" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/prasanth-sekar-826890283" target="_blank">LinkedIn</a>
+      <a href="mailto:prasanthsekar3794@gmail.com">Email</a>
+      <a href="tel:+918667091610">+91 8667091610</a>
+    </div>
+    <div class="sf-copy">© 2025 Prasanth Sekar · Chennai, India</div>
+  </footer>
+
+</div><!-- /main-page -->
+
+
+
+
+<script src="js/main.js"></script>
+</body>
+</html>

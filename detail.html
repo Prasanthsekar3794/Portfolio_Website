@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prasanth Sekar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/detail.css"/>
+</head>
+<body>
+
+<!-- WIPE -->
+<div id="wipe"></div>
+
+<!-- NAV -->
+<nav class="nf-nav" id="topnav">
+  <a class="nf-logo" href="index.html?home=1">PRASANTH.</a>
+  <a class="nf-back" onclick="goBack()">&#8592; Back</a>
+  <ul class="nf-nav-links">
+    <li><a href="index.html?home=1#proj-sec">Projects</a></li>
+    <li><a href="index.html?home=1#exp-sec">Experience</a></li>
+    <li><a href="index.html?home=1#cert-sec">Certifications</a></li>
+    <li><a href="index.html?home=1#contact-sec">Contact</a></li>
+  </ul>
+  <div class="nf-nav-r">
+    <div class="nf-avatar"><img src="assets/prasanth.jpg" alt="Prasanth"/></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="nf-hero" id="hero">
+  <div class="nf-hero-film">
+    <img id="hero-img" src="assets/prasanth.jpg" alt=""/>
+  </div>
+  <div class="nf-hero-color" id="hero-color"></div>
+  <div class="nf-hero-vignette"></div>
+  <div class="nf-hero-grain"></div>
+  <div class="nf-hero-content">
+    <div class="nf-series-tag">
+      <span class="nf-n-mark" id="h-nmark">N</span>
+      <span id="h-series">PROJECT</span>
+      &nbsp;·&nbsp;
+      <span class="nf-type-mark" id="h-typemark"></span>
+    </div>
+    <h1 class="nf-hero-title">
+      <span id="h-line1"></span>
+      <em id="h-line2"></em>
+    </h1>
+    <div class="nf-hero-company" id="h-company"></div>
+    <div class="nf-meta" id="h-meta"></div>
+    <p class="nf-hero-desc" id="h-desc"></p>
+    <div class="nf-btns" id="h-btns"></div>
+  </div>
+</section>
+
+<!-- BELOW HERO -->
+<div class="nf-below">
+
+  <!-- LEFT -->
+  <div class="nf-left">
+    <div class="nf-about" id="nf-about">
+      <p class="nf-about-p" id="about-p"></p>
+    </div>
+
+    <div class="nf-details-row" id="details-row"></div>
+
+    <div class="nf-kp-title" id="kp-title">Key Highlights</div>
+    <div class="nf-kp-list" id="kp-list"></div>
+
+    <div class="nf-tags-title">Technologies & Skills</div>
+    <div class="nf-tags" id="tags-row"></div>
+
+    <div class="nf-more-title" id="more-title">More Like This</div>
+    <div class="nf-shelf" id="shelf"></div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="nf-right">
+    <div class="nf-info-card">
+      <div class="nf-info-card-top" id="info-top"></div>
+      <div class="nf-info-body">
+        <div class="nf-info-label">Quick Info</div>
+        <div class="nf-info-rows" id="info-rows"></div>
+      </div>
+    </div>
+    <div class="nf-cert-card" id="cert-card" style="display:none" onclick="openPdf()">
+      <div class="nf-cert-thumb" id="cert-thumb">
+        <div class="nf-cert-thumb-bg" id="cert-thumb-bg"></div>
+        <div class="nf-cert-thumb-icon" id="cert-icon"></div>
+      </div>
+      <div class="nf-cert-body">
+        <div class="nf-cert-label">Official Certificate</div>
+        <div class="nf-cert-name" id="cert-name"></div>
+        <button class="nf-cert-btn" onclick="event.stopPropagation();openPdf()">📄 View PDF</button>
+        <button class="nf-cert-dl" onclick="event.stopPropagation();dlPdf()">⬇ Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PDF VIEWER -->
+<div id="pdfV">
+  <div class="pv-top">
+    <span style="font-size:20px">📄</span>
+    <div class="pv-top-info">
+      <div class="pv-top-title" id="pv-title"></div>
+      <div class="pv-top-sub" id="pv-sub"></div>
+    </div>
+    <div class="pv-top-btns">
+      <button class="pvb pvb-dl" onclick="dlPdf()">⬇ Download</button>
+      <button class="pvb pvb-x" onclick="closePdf()">✕ Close</button>
+    </div>
+  </div>
+  <div class="pv-body"><iframe id="pv-frame" title="Certificate"></iframe></div>
+  <div class="pv-foot">
+    <span>💡 Scroll inside to read all pages</span>
+    <span>Press <kbd style="background:#333;padding:1px 6px;border-radius:3px;font-family:monospace">Esc</kbd> to close</span>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/detail.js"></script>
+</body>
+</html>
